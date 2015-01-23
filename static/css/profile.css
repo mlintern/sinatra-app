@@ -1,31 +1,4 @@
 /*
- * Base structure
- */
-
-/* Move down content because we have a fixed navbar that is 50px tall */
-body {
-  padding-top: 50px;
-}
-
-
-/*
- * Global add-ons
- */
-
-.sub-header {
-  padding-bottom: 10px;
-  border-bottom: 1px solid #eee;
-}
-
-/*
- * Top navigation
- * Hide default border to remove 1px line.
- */
-.navbar-fixed-top {
-  border: 0;
-}
-
-/*
  * Sidebar
  */
 
@@ -85,7 +58,7 @@ body {
 }
 
 /*
- *
+ * Misc
  */
 
 input[type=submit] {
@@ -95,4 +68,8 @@ input[type=submit] {
 .profile-update-form, .password-update-form {
   max-width: 330px;
   margin: 0 auto;
+}
+
+label {
+  margin-top: 5px;
 }

@@ -21,6 +21,9 @@ body {
   border: 0;
 }
 
+.fa.fa-nav {
+  font-size: 1.25em;
+}
 
 @media (min-width: 768px) {
 	.navbar-right {
@@ -42,12 +45,13 @@ body {
  */
 
 footer {
-	position: absolute;
+	position: fixed;
 	bottom: 0;
 	z-index: 1000;
 	padding-bottom: 20px;
 	width: 100%;
 	text-align: right;
+	background-color: #fff;
 }
 footer p{
 	margin-right: 20px;
