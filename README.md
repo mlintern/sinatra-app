@@ -10,9 +10,14 @@ This is a Shell for a Sinatra Application build on a Bootstrap template.
 
 ###Endpoints:
 
-GET / - index view
-
-GET /demo(/)? - Will resond with a default greeting of 
-	- you can specifify a greeting by passing a greeting via a greeting var 
-
-GET /login(/)?
+get "/"
+get "/signup"
+post "/api/users"
+post "/api/users/:id"
+post "/api/users/:id/password"
+get "/login"
+post "/login"
+get "/logout"
+get "/app"
+get "/app/settings" 
+get "/app/profile"
