@@ -12,6 +12,8 @@
 	<!-- Optional Bootstrap theme -->
 	<link rel="stylesheet" href="/css/bootstrap-theme.min.css">
 
+		<!-- Global CSS -->
+	<link rel="stylesheet" href="/css/global.css">
 	
 	<% unless extra_style_sheet.nil? %>
 		<!-- Extra Styles -->
@@ -23,6 +25,20 @@
 
 </head>
 <body>
+
+	<% if session[:errors] %>
+    <ul>
+      <% for error in session[:errors] %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <% if flash[:info] %>
+    <div class="flash">
+        <%= flash[:info] %>
+    </div>
+  <% end %>
 
 	<%= yield %>
 

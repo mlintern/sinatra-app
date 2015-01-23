@@ -2,7 +2,7 @@ helpers do
   include Rack::Utils
   alias_method :h, :escape_html
   
-  # Convert a hash to a querystring for form population
+  # Convert a hash to a querystring forform population
   def hash_to_query_string(hash)
     hash.delete "password"
     hash.delete "password_confirmation"
@@ -25,7 +25,7 @@ helpers do
     if session[:user]
       return true
     else
-      flash[:notice] =  "Login required to view this page"
+      flash[:info] = "Login is required."
       session[:redirect_to] = request.fullpath
       redirect "/login"
       return false
@@ -37,8 +37,8 @@ helpers do
     if current_user && is_admin?
       return true
     else
-      flash[:notice] =  "Admin required to view this page"
-      redirect "/"
+      flash[:info] = "Admin rights required to view the settings page."
+      redirect_last
       return false
     end
   end
@@ -53,8 +53,8 @@ helpers do
     if current_user && current_user.id.to_i == owner_id.to_i
       return true
     else
-      flash[:notice] =  "You are not authorised to view this page"
-      redirect "/"
+      flash[:info] = "You are not authorised to view that page."
+      redirect "/app"
       return false
     end    
   end

@@ -1,14 +1,6 @@
 <div class="container">
-
-   <% if session[:errors] %>
-    <ul>
-      <% for error in session[:errors] %>
-        <li><%= error %></li>
-      <% end %>
-    </ul>
-  <% end %>
    
-   <form class="signup-form" action="/users" method="post">
+   <form class="signup-form" action="/api/users" method="post">
     <h2 class="signup-form-heading">Sign Up</h2>
     <div>
       <label for="user[username]">Username</label>

@@ -1,0 +1,8 @@
+.flash {
+  color: red;
+  text-align: center;
+  min-width: 100%;
+  position: absolute;
+  top: 55px;
+  font-size: 24px;
+}

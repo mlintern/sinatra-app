@@ -6,14 +6,15 @@ get "/signup" do
   erb :signup, :layout => :bs_skin, :locals => { 'extra_style_sheet' => '<link rel="stylesheet" href="/css/signup.css">' }
 end
 
-post "/users" do
+post "/api/users" do
   user = User.create(params[:user])
-  user.username.downcase!
   user.password_salt = BCrypt::Engine.generate_salt
   user.password_hash = BCrypt::Engine.hash_secret(params[:user][:password], user.password_salt)
+  puts user.inspect
   if user.save
     flash[:info] = "Thank you for registering #{user.username}" 
     session[:user] = user.token
+    session[:errors] = nil;
     redirect "/login" 
   else
     session[:errors] = user.errors.full_messages
@@ -21,7 +22,7 @@ post "/users" do
   end
 end
 
-post "/users/:id" do
+post "/api/users/:id" do
   @user2 = params[:user]
   if @user = User.first(:id => params[:id])
     @user2.each do |key,val|
@@ -30,12 +31,12 @@ post "/users/:id" do
       end
     end
   else
-    flash[:error] = "Could not find user with id:  #{user.id}!"
+    flash[:info] = "Could not find user with id:  #{user.id}!"
   end
   redirect "/app/profile"
 end
 
-post "/users/:id/password" do
+post "/api/users/:id/password" do
   if ( ( @user = User.first(:id => params[:id]) ) && ( params[:user][:password] == params[:user][:password_confirmation] ) )
     password_hash = BCrypt::Engine.hash_secret(params[:user][:password], @user.password_salt)
     puts @user.update({:password_hash => password_hash, :password => "123456", :password_confirmation => "123456"})
@@ -54,17 +55,18 @@ get "/login" do
 end
 
 post "/login" do
-  if user = User.first(:username => params[:username].downcase)
+  if user = User.first(:username => params[:username])
     if user.password_hash == BCrypt::Engine.hash_secret(params[:password], user.password_salt)
     session[:user] = user.token 
     response.set_cookie "user", {:value => user.token, :expires => (Time.now + 52*7*24*60*60)} if params[:remember_me]
     redirect "/app"
+    session[:errors] = nil
     else
-      flash[:error] = "Username/Password combination does not match"
+      flash[:info] = "Username/Password combination does not match"
       redirect "/login?username=#{params[:username]}"
     end
   else
-    flash[:error] = "That email address is not recognised"
+    flash[:info] = "That email address is not recognised"
     redirect "/login?username=#{params[:username]}"
   end
 end
@@ -73,6 +75,7 @@ get "/logout" do
   current_user.generate_token
   response.delete_cookie "user"
   session[:user] = nil
+  session[:errors] = nil;
   flash[:info] = "Successfully logged out"
   redirect "/"
 end
