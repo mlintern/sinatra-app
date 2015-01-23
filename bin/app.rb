@@ -55,17 +55,18 @@ class App < Sinatra::Base
         fail!("Could not log in")
       end
     end
+
   end
 
   get '/' do
     erb :index, :layout => :bs_skin, :locals => {'extra_style_sheet' => '<link rel="stylesheet" href="/css/index.css">' }
   end
 
-  get %r{/login(/)?} do
+  get '/login' do
     erb :login, :layout => :bs_skin, :locals => {'extra_style_sheet' => '<link rel="stylesheet" href="/css/login.css">' }
   end
 
-  post %r{/login(/)?} do
+  post '/login' do
     env['warden'].authenticate!
 
     flash[:success] = env['warden'].message
@@ -96,5 +97,11 @@ class App < Sinatra::Base
     env['warden'].authenticate!
 
     erb :app, :layout => :bs_skin, :locals => {'extra_style_sheet' => '<link rel="stylesheet" href="/css/app.css">' }
+  end
+
+  get '/app/settings' do
+    env['warden'].authenticate!
+
+    erb :settings, :layout => :bs_skin, :locals => {'extra_style_sheet' => '<link rel="stylesheet" href="/css/settings.css">' }
   end
 end

@@ -26,7 +26,14 @@ DataMapper.auto_upgrade!
 
 # Create a test User
 if User.count == 0
-  @user = User.create(username: "admin")
-  @user.password = "admin"
+  @Admin = User.create(username: "admin")
+  @Admin.password = "password"
+  @Admin.save
+end
+
+# Create a test User
+if User.count == 1
+  @user = User.create(username: "user")
+  @user.password = "password"
   @user.save
 end
