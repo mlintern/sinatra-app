@@ -1,0 +1,63 @@
+<%= erb :app_nav %>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3 col-md-2 sidebar">
+      <ul class="nav nav-sidebar" role="tablist">
+        <li class="active"><a href="#Profile" aria-controls="home" role="tab" data-toggle="tab">Pofile <span class="sr-only">(current)</span></a></li>
+        <li><a href="#Password" aria-controls="home" role="tab" data-toggle="tab">Password</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      <h1 class="page-header"><%= user.first_name %> <%= user.last_name %></h1>
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="Profile">
+          <form class="profile-update-form" action="/users/<%= user.id %>" method="post">
+
+            <div>
+              <label for="user[username]">Username</label>
+              <input class="form-control" type="text" name="user[username]" value="<%= user.username %>"/>
+            </div>
+
+            <div>
+              <label for="user[first_name]">First Name</label>
+              <input class="form-control" type="text" name="user[first_name]" value="<%= user.first_name %>"/>
+            </div>
+
+            <div>
+              <label for="user[last_name]">Last Name</label>
+              <input class="form-control" type="text" name="user[last_name]" value="<%= user.last_name %>"/>
+            </div>
+
+            <div>
+              <label for="user[email]">Email</label>
+              <input class="form-control" type="text" name="user[email]" value="<%= user.email %>"/>
+            </div>
+
+            <input type="submit" class="btn btn-lg btn-primary" value="Update"/>
+
+          </form>
+        </div>
+
+        <div role="tabpanel" class="tab-pane" id="Password">
+          <form class="password-update-form" action="/users/<%= user.id %>/password" method="post">
+
+            <div>
+              <label for="user[password]">Password</label>
+              <input class="form-control" type="password" name="user[password]"/>
+            </div>
+
+            <div>
+              <label for="user[password_confirmation]">Password Confirmation</label>
+              <input class="form-control" type="password" name="user[password_confirmation]"/>
+            </div>
+
+            <input type="submit" class="btn btn-lg btn-primary" value="Update"/>
+
+          </form>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>

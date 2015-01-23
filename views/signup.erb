@@ -1,45 +1,47 @@
-<h3>Users</h3>
+<div class="container">
 
-<% if session[:errors] %>
-  <ul>
-    <% for error in session[:errors] %>
-      <li><%= error %></li>
-    <% end %>
-  </ul>
-<% end %>
- 
- <form action="/signup" method="post">
-  
-  <p>
-    <label for="user[username]">Username</label>
-    <input type="text" name="user[username]" value="<%= params[:username] %>"/>
-  </p>
+   <% if session[:errors] %>
+    <ul>
+      <% for error in session[:errors] %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  <% end %>
+   
+   <form class="signup-form" action="/users" method="post">
+    <h2 class="signup-form-heading">Sign Up</h2>
+    <div>
+      <label for="user[username]">Username</label>
+      <input class="form-control" type="text" name="user[username]" value="<%= params[:username] %>"/>
+    </div>
 
-  <p>
-    <label for="user[first_name]">First Name</label>
-    <input type="text" name="user[first_name]" value="<%= params[:first_name] %>"/>
-  </p>
+    <div>
+      <label for="user[first_name]">First Name</label>
+      <input class="form-control" type="text" name="user[first_name]" value="<%= params[:first_name] %>"/>
+    </div>
 
-  <p>
-    <label for="user[last_name]">Last Name</label>
-    <input type="text" name="user[last_name]" value="<%= params[:last_name] %>"/>
-  </p>
+    <div>
+      <label for="user[last_name]">Last Name</label>
+      <input class="form-control" type="text" name="user[last_name]" value="<%= params[:last_name] %>"/>
+    </div>
 
-  <p>
-    <label for="user[email]">Email</label>
-    <input type="text" name="user[email]" value="<%= params[:email] %>"/>
-  </p>
+    <div>
+      <label for="user[email]">Email</label>
+      <input class="form-control" type="text" name="user[email]" value="<%= params[:email] %>"/>
+    </div>
 
-  <p>
-    <label for="user[password]">Password</label>
-    <input type="password" name="user[password]"/>
-  </p>
+    <div>
+      <label for="user[password]">Password</label>
+      <input class="form-control" type="password" name="user[password]"/>
+    </div>
 
-  <p>
-    <label for="user[password_confirmation]">Password Confirmation</label>
-    <input type="password" name="user[password_confirmation]"/>
-  </p>
+    <div>
+      <label for="user[password_confirmation]">Password Confirmation</label>
+      <input class="form-control" type="password" name="user[password_confirmation]"/>
+    </div>
 
-  <input type="submit" value="Register"/>
+    <input type="submit" class="btn btn-lg btn-primary btn-block" value="Sign Up"/>
 
-</form>
+  </form>
+
+</div>
