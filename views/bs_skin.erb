@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Website Title</title>
+	<title>Sinatra App</title>
 	<meta charset="UTF-8">
 
 	<script type="text/javascript" src="/js/jquery.min.js"></script>
@@ -11,6 +11,11 @@
 
 	<!-- Optional Bootstrap theme -->
 	<link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+
+	<!-- Extra Styles -->
+	<%= unless extra_style_sheet.nil?
+	extra_style_sheet 
+	end%>
 
 	<!-- Font Awesome-->
 	<link href="/css/font-awesome.min.css" rel="stylesheet">
