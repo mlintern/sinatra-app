@@ -1,7 +1,9 @@
+<%= erb :home_nav %>
+
 <div class="container">
 
   <form class="form-signin" action="/login" method="post">
-    <h2 class="form-signin-heading">Please sign in</h2>
+    <h2 class="form-signin-heading">Please Sign In</h2>
     <label for="inputEmail" class="sr-only">Username</label>
     <input type="text" id="inputEmail" class="form-control" placeholder="Username" name="username" value="<%= params[:username] %>" required autofocus>
     <label for="inputPassword" class="sr-only">Password</label>
@@ -12,8 +14,8 @@
       </label>
     </div>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-    <div>
-      <a href="/signup">Signup</a>
+    <div style="margin-top: 10px;">
+      <a href="/signup">No Username? Signup!</a>
     </div>
   </form>
 

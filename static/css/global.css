@@ -1,8 +1,54 @@
+/*
+ * Global add-ons
+ */
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+
+.sub-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+/*
+ * Top navigation
+ * Hide default border to remove 1px line.
+ */
+.navbar-fixed-top {
+  border: 0;
+}
+
+
+@media (min-width: 768px) {
+	.navbar-right {
+	float: right!important;
+	margin-right: 0px;
+	}
+}
 .flash {
   color: red;
   text-align: center;
   min-width: 100%;
   position: absolute;
-  top: 55px;
+  top: 75px;
   font-size: 24px;
+}
+
+/*
+ * footer
+ */
+
+footer {
+	position: absolute;
+	bottom: 0;
+	z-index: 1000;
+	padding-bottom: 20px;
+	width: 100%;
+	text-align: right;
+}
+footer p{
+	margin-right: 20px;
 }

@@ -1,6 +1,7 @@
 <%= erb :app_nav %>
 
 <div class="container-fluid">
+
   <div class="row">
     <div class="col-sm-3 col-md-2 sidebar">
       <ul class="nav nav-sidebar" role="tablist">
@@ -12,7 +13,7 @@
       <h1 class="page-header">Settings</h1>
       <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="Users">
-          <table class="table">
+          <table class="table table-striped">
             <caption>Optional table caption.</caption>
             <thead>
               <tr>
@@ -45,4 +46,6 @@
       
     </div>
   </div>
-</div>
+
+  <%= erb :footer %>
+</div> <!-- container-fluid -->
