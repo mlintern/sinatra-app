@@ -10,6 +10,7 @@
       </ul>
     </div>
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      <%= erb :add_user_modal %>
       <h1 class="page-header">Settings</h1>
       <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="Users">
@@ -26,13 +27,13 @@
             </thead>
             <tbody>
             <% all_users.each do |user| %>
-                <a href="/api/users/<%= user.id %>" ><tr>
+                <tr>
                   <th scope="row"><%= user.id %></th>
-                  <td><%= user.username %></td>
+                  <td><a href="/api/users/<%= user.id %>" ><%= user.username %></a></td>
                   <td><%= user.first_name %></td>
                   <td><%= user.last_name %></td>
                   <td><%= user.email %></td>
-                </tr></a>
+                </tr>
             <% end %>
             </tbody>
           </table>
@@ -47,5 +48,6 @@
     </div>
   </div>
 
-  <%= erb :footer %>
 </div> <!-- container-fluid -->
+
+<%= erb :footer %>

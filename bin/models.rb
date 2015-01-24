@@ -40,21 +40,3 @@ end
 
 DataMapper.finalize
 DataMapper.auto_upgrade!
-
-unless User.first(:username => "administrator")
-  puts "---- Creating Admin ----"
-  user = User.create( :username => "administrator", :password => "123456", :password_confirmation => "123456")
-  user.admin = true
-  user.password_salt = BCrypt::Engine.generate_salt
-  user.password_hash = BCrypt::Engine.hash_secret( "password" , user.password_salt)
-  if user.save
-    puts "---- Created Admin ----"
-  else
-    puts "---- Failed Saving Admin ----"
-  end
-end
-
-
-# user2 = User.first(:id => 5)
-# puts "updating user2"
-# puts user2.update({:first_name => 'John', :password => "123456", :password_confirmation => "123456"})

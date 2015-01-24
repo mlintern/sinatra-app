@@ -1,8 +1,10 @@
 get "/" do
+  session[:redirect_to] = request.fullpath
   erb :index, :layout => :bs_skin, :locals => { 'extra_style_sheet' => '<link rel="stylesheet" href="/css/index.css">' }
 end
 
 get "/signup" do
+  session[:redirect_to] = request.fullpath
   erb :signup, :layout => :bs_skin, :locals => { 'extra_style_sheet' => '<link rel="stylesheet" href="/css/signup.css">' }
 end
 
@@ -22,6 +24,16 @@ post "/api/users" do
   end
 end
 
+get "/api/users/:id" do
+  admin_required
+
+  if @user = User.first(:id => params[:id])
+    erb :profile, :layout => :bs_skin, :locals => { 'extra_style_sheet' => '<link rel="stylesheet" href="/css/profile.css">', 'user' => @user }
+  else
+    flash[:info] = "Could not find user with id:  #{user.id}!"
+  end
+end
+
 post "/api/users/:id" do
   @user2 = params[:user]
   if @user = User.first(:id => params[:id])
@@ -33,7 +45,7 @@ post "/api/users/:id" do
   else
     flash[:info] = "Could not find user with id:  #{user.id}!"
   end
-  redirect "/app/profile"
+  redirect_last
 end
 
 post "/api/users/:id/password" do
@@ -43,7 +55,7 @@ post "/api/users/:id/password" do
   else
     flash[:error] = "Could not find user with id:  #{user.id}!"
   end
-  redirect "/app/profile"
+  redirect_last
 end
 
 get "/login" do
@@ -95,6 +107,6 @@ get "/app/settings" do
 end
 
 get "/app/profile" do
+  session[:redirect_to] = request.fullpath
   erb :profile, :layout => :bs_skin, :locals => { 'extra_style_sheet' => '<link rel="stylesheet" href="/css/profile.css">', 'user' => current_user }
-  # "<pre>id: #{current_user.id}\nemail: #{current_user.email}\nadmin? #{current_user.admin}</pre>"
 end

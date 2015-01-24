@@ -10,4 +10,7 @@ require "./bin/helpers"
 require "./bin/models"
 require "./bin/routes"
 
+# This is to create initial users for application
+require "./bin/user_create"
+
 run Sinatra::Application

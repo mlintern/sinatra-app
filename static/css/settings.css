@@ -7,7 +7,6 @@ body {
   padding-top: 50px;
 }
 
-
 /*
  * Global add-ons
  */
@@ -66,7 +65,6 @@ body {
   background-color: #428bca;
 }
 
-
 /*
  * Main content
  */
@@ -84,22 +82,12 @@ body {
   margin-top: 0;
 }
 
-
 /*
- * Placeholder dashboard ideas
+ * New User Modal
  */
-
-.placeholders {
-  margin-bottom: 30px;
-  text-align: center;
+label{
+  margin-top: 5px;
 }
-.placeholders h4 {
-  margin-bottom: 0;
-}
-.placeholder {
-  margin-bottom: 20px;
-}
-.placeholder img {
-  display: inline-block;
-  border-radius: 50%;
+input[type=submit] {
+  margin-top: 10px;
 }

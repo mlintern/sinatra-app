@@ -35,6 +35,7 @@ helpers do
   # Require admin flag to view page
   def admin_required
     if current_user && is_admin?
+      session[:redirect_to] = request.fullpath
       return true
     else
       flash[:info] = "Admin rights required to view the settings page."

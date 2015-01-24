@@ -5,7 +5,7 @@
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
   padding-top: 50px;
-  padding-bottom: 20px;
+  padding-bottom: 60px;
 }
 
 .sub-header {
@@ -19,6 +19,10 @@ body {
  */
 .navbar-fixed-top {
   border: 0;
+}
+
+.navbar .username {
+	margin-right: 8px;
 }
 
 .fa.fa-nav {
@@ -48,11 +52,15 @@ footer {
 	position: fixed;
 	bottom: 0;
 	z-index: 1000;
-	padding-bottom: 20px;
+	padding-bottom: 10px;
 	width: 100%;
 	text-align: right;
 	background-color: #fff;
 }
-footer p{
+footer p {
 	margin-right: 20px;
+}
+footer hr {
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
