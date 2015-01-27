@@ -21,3 +21,9 @@ get "/logout"
 get "/app"
 get "/app/settings" 
 get "/app/profile"
+
+
+
+## Deployment
+
+bundle install --deployment

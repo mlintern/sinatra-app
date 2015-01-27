@@ -1,10 +1,10 @@
 require "sinatra"
 require "sinatra/flash"
+require 'bundler/setup'
 
-set :static, true
 set :public_folder, "static"
 set :views, "views"
-enable :sessions
+enable :sessions, :static
 
 require "./bin/helpers"
 require "./bin/models"
