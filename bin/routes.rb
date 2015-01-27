@@ -1,11 +1,11 @@
 get "/" do
   session[:redirect_to] = request.fullpath
-  erb :index, :layout => :bs_skin, :locals => { 'extra_style_sheet' => '<link rel="stylesheet" href="/css/index.css">' }
+  erb :index, :layout => :'layouts/bs_skin', :locals => { 'extra_style_sheet' => '<link rel="stylesheet" href="/css/index.css">' }
 end
 
 get "/signup" do
   session[:redirect_to] = request.fullpath
-  erb :signup, :layout => :bs_skin, :locals => { 'extra_style_sheet' => '<link rel="stylesheet" href="/css/signup.css">' }
+  erb :signup, :layout => :'layouts/bs_skin', :locals => { 'extra_style_sheet' => '<link rel="stylesheet" href="/css/signup.css">' }
 end
 
 post "/api/users" do
@@ -28,7 +28,7 @@ get "/api/users/:id" do
   admin_required
 
   if @user = User.first(:id => params[:id])
-    erb :profile, :layout => :bs_skin, :locals => { 'extra_style_sheet' => '<link rel="stylesheet" href="/css/profile.css">', 'user' => @user }
+    erb :profile, :layout => :'layouts/bs_skin', :locals => { 'extra_style_sheet' => '<link rel="stylesheet" href="/css/profile.css">', 'user' => @user }
   else
     flash[:info] = "Could not find user with id:  #{user.id}!"
   end
@@ -62,7 +62,7 @@ get "/login" do
   if current_user
     redirect_last
   else
-    erb :login, :layout => :bs_skin, :locals => { 'extra_style_sheet' => '<link rel="stylesheet" href="/css/login.css">' }
+    erb :login, :layout => :'layouts/bs_skin', :locals => { 'extra_style_sheet' => '<link rel="stylesheet" href="/css/login.css">' }
   end
 end
 
@@ -95,7 +95,7 @@ end
 get "/app" do
   login_required
 
-  erb :app, :layout => :bs_skin, :locals => { 'extra_style_sheet' => '<link rel="stylesheet" href="/css/app.css">' }
+  erb :app, :layout => :'layouts/bs_skin', :locals => { 'extra_style_sheet' => '<link rel="stylesheet" href="/css/app.css">' }
 end
 
 get "/app/settings" do
@@ -103,10 +103,10 @@ get "/app/settings" do
 
   all_users = User.all
 
-  erb :settings, :layout => :bs_skin, :locals => { 'extra_style_sheet' => '<link rel="stylesheet" href="/css/settings.css">', 'all_users' => all_users }
+  erb :settings, :layout => :'layouts/bs_skin', :locals => { 'extra_style_sheet' => '<link rel="stylesheet" href="/css/settings.css">', 'all_users' => all_users }
 end
 
 get "/app/profile" do
   session[:redirect_to] = request.fullpath
-  erb :profile, :layout => :bs_skin, :locals => { 'extra_style_sheet' => '<link rel="stylesheet" href="/css/profile.css">', 'user' => current_user }
+  erb :profile, :layout => :'layouts/bs_skin', :locals => { 'extra_style_sheet' => '<link rel="stylesheet" href="/css/profile.css">', 'user' => current_user }
 end
