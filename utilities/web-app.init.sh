@@ -12,7 +12,7 @@
 
 NAME=sinatra-app
 HOMEDIR=/var/www/sinatra-app
-PROG='ruby $HOMEDIR/bin/app.rb'
+PROG='bundle exec rackup config.ru --port 8081'
 PIDFILE=/var/run/$NAME/$NAME.pid
 LOCKFILE=/var/lock/subsys/$NAME
 
