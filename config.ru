@@ -2,7 +2,7 @@ require "sinatra"
 require "sinatra/flash"
 require 'bundler/setup'
 
-set :public_folder, "static"
+set :public_folder, "public"
 set :views, "views"
 enable :sessions, :static
 
