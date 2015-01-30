@@ -30,7 +30,7 @@ get "/api/users/:id" do
   if @user = User.first(:id => params[:id])
     erb :profile, :layout => :'layouts/bs_skin', :locals => { 'extra_style_sheet' => '<link rel="stylesheet" href="/css/profile.css">', 'user' => @user }
   else
-    flash[:info] = "Could not find user with id:  #{user.id}!"
+    flash[:info] = "Could not find user with id: #{user.id}!"
   end
 end
 
