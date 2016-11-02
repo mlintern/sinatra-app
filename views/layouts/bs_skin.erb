@@ -9,9 +9,6 @@
 	<!-- Latest compiled and minified Bootstrap CSS -->
 	<link rel="stylesheet" href="/css/bootstrap.min.css">
 
-	<!-- Optional Bootstrap theme -->
-	<link rel="stylesheet" href="/css/bootstrap-theme.min.css">
-
 		<!-- Global CSS -->
 	<link rel="stylesheet" href="/css/global.css">
 	
@@ -27,21 +24,22 @@
 <body>
 
 	<% if session[:errors] %>
-    <ul>
-      <% for error in session[:errors] %>
-        <li><%= error %></li>
-      <% end %>
-    </ul>
-  <% end %>
+		<ul>
+			<% for error in session[:errors] %>
+				<li><%= error %></li>
+			<% end %>
+		</ul>
+	<% end %>
 
-  <% if flash[:info] %>
-    <div class="flash">
-        <%= flash[:info] %>
-    </div>
-  <% end %>
+	<% if flash[:info] %>
+		<div class="flash">
+				<%= flash[:info] %>
+		</div>
+	<% end %>
 
 	<%= yield %>
 
+	<script src="/js/tether.min.js"></script>
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="/js/bootstrap.min.js"></script>
 

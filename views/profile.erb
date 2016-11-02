@@ -4,14 +4,14 @@
   <div class="row">
     <div class="col-sm-3 col-md-2 sidebar">
       <ul class="nav nav-sidebar" role="tablist">
-        <li class="active"><a href="#Profile" aria-controls="home" role="tab" data-toggle="tab">Profile <span class="sr-only">(current)</span></a></li>
-        <li><a href="#Password" aria-controls="home" role="tab" data-toggle="tab">Password</a></li>
+        <li class="nav-item"><a href="#Profile" class="nav-link active" aria-controls="home" role="tab" data-toggle="tab">Profile <span class="sr-only">(current)</span></a></li>
+        <li class="nav-item"><a href="#Password" class="nav-link" aria-controls="home" role="tab" data-toggle="tab">Password</a></li>
       </ul>
     </div>
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-      <h1 class="page-header">Profile</h1>
       <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="Profile">
+          <h1 class="page-header">Profile</h1>
           <form class="profile-update-form" action="/api/users/<%= user.id %>" method="post">
 
             <div>
@@ -40,6 +40,7 @@
         </div>
 
         <div role="tabpanel" class="tab-pane" id="Password">
+          <h1 class="page-header">Password</h1>
           <form class="password-update-form" action="/api/users/<%= user.id %>/password" method="post">
 
             <div>

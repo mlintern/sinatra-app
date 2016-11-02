@@ -84,4 +84,4 @@ DEPENDENCIES
   sinatra-redirect-with-flash
 
 BUNDLED WITH
-   1.12.5
+   1.13.6

@@ -5,15 +5,15 @@
   <div class="row">
     <div class="col-sm-3 col-md-2 sidebar">
       <ul class="nav nav-sidebar" role="tablist">
-        <li class="active"><a href="#Users" aria-controls="home" role="tab" data-toggle="tab">Users <span class="sr-only">(current)</span></a></li>
-        <li><a href="#Permissions" aria-controls="home" role="tab" data-toggle="tab">Permissions</a></li>
+        <li class="nav-item"><a class="nav-link active" href="#Users" aria-controls="home" role="tab" data-toggle="tab">Users <span class="sr-only">(current)</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#Permissions" aria-controls="home" role="tab" data-toggle="tab">Permissions</a></li>
       </ul>
     </div>
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
       <%= erb :add_user_modal %>
-      <h1 class="page-header">Settings</h1>
       <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="Users">
+          <h1 class="page-header">Settings</h1>
           <table class="table table-striped">
             <caption>Optional table caption.</caption>
             <thead>
@@ -41,7 +41,7 @@
         </div>
 
         <div role="tabpanel" class="tab-pane" id="Permissions">
-          Permissions
+          <h1 class="page-header">Permissions</h1>
         </div>
       </div>
       
