@@ -24,9 +24,11 @@ helpers do
 
   # Require login to view page
   def login_required
-    return true if session[:user]
+    if session[:user]
+      session[:redirect_to] = request.fullpath
+      return true
+    end
     flash[:info] = 'Login is required.'
-    session[:redirect_to] = request.fullpath
     redirect '/login'
     false
   end
@@ -36,11 +38,10 @@ helpers do
     if current_user && admin?
       session[:redirect_to] = request.fullpath
       return true
-    else
-      flash[:info] = 'Admin rights required to view the settings page.'
-      redirect_last
-      return false
     end
+
+    flash[:info] = 'Admin rights required to view the settings page.'
+    redirect_last
   end
 
   # Check user has admin flag
