@@ -30,11 +30,13 @@ body {
 }
 
 @media (min-width: 768px) {
-	.navbar-right {
-	float: right!important;
-	margin-right: 0px;
+	.navbar-toggleable-md .navbar-right {
+		display: block;
+		float: right;
+		margin-right: 0px;
 	}
 }
+
 .flash {
   color: red;
   text-align: center;
@@ -57,9 +59,11 @@ footer {
 	text-align: right;
 	background-color: #fff;
 }
+
 footer p {
 	margin-right: 20px;
 }
+
 footer hr {
 	margin-top: 10px;
 	margin-bottom: 10px;
