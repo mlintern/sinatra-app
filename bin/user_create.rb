@@ -1,5 +1,6 @@
 # encoding: utf-8
 # frozen_string_literal: true
+
 unless User.first(username: 'administrator')
   puts '---- Creating Admin ----'
   user = User.create(username: 'administrator', password: '123456', password_confirmation: '123456')

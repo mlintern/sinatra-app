@@ -1,5 +1,6 @@
 # encoding: utf-8
 # frozen_string_literal: true
+
 get '/' do
   session[:redirect_to] = request.fullpath
   erb :index, layout: :'layouts/bs_skin', locals: { 'extra_style_sheet' => '<link rel="stylesheet" href="/css/index.css">' }
