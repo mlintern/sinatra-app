@@ -1,12 +1,13 @@
-<nav class="navbar fixed-top navbar-toggleable-md navbar-inverse bg-primary">
-	<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-	</button>
-	<a class="navbar-brand" href="/app">Sinatra App</a>
-	<div class="collapse navbar-collapse navbar-right" id="navbarNav">
-		<ul class="nav navbar-nav">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="/app">Sinatra App</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse navbar-right" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
 			<li class="nav-item"><a class="nav-link" href="/app/profile"><span class="username"><%= current_user.username %></span><fa class="fa fa-nav fa-user"></fa></a></li>
-			<li class="nav-item"><a class="nav-link" href="/app/settings"><fa class="fa fa-nav fa-gear"></fa></a></li>
-			<li class="nav-item"><a class="nav-link" href="/logout"><fa class="fa fa-nav fa-power-off"></fa></a></li>
-	</div>
+			<li class="nav-item"><a class="nav-link" href="/app/settings"><fa class="fas fa-fw fa-cog"></fa></a></li>
+			<li class="nav-item"><a class="nav-link" href="/logout"><fa class="fa fa-fw fa-power-off"></fa></a></li>
+    </ul>
+  </div>
 </nav>

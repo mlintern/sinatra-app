@@ -1,4 +1,3 @@
-# encoding: utf-8
 # frozen_string_literal: true
 
 helpers do
@@ -53,6 +52,7 @@ helpers do
   # Check logged in user is the owner
   def owner?(owner_id)
     return true if current_user && current_user.id.to_i == owner_id.to_i
+
     flash[:info] = 'You are not authorised to view that page.'
     redirect '/app'
     false
@@ -61,6 +61,7 @@ helpers do
   # Return current_user record if logged in
   def current_user
     return @current_user ||= User.first(token: request.cookies['user']) if request.cookies['user']
+
     @current_user ||= User.first(token: session[:user]) if session[:user]
   end
 

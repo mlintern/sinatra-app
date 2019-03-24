@@ -4,14 +4,12 @@
 	<title>Sinatra App</title>
 	<meta charset="UTF-8">
 
-
-
-	<!-- Latest compiled and minified Bootstrap CSS -->
+	<!-- Latest compiled and minified Fontstrap CSS -->
 	<link rel="stylesheet" href="/dist/css/fontstrap.min.css">
 
 		<!-- Global CSS -->
 	<link rel="stylesheet" href="/css/global.css">
-	
+
 	<% unless extra_style_sheet.nil? %>
 		<!-- Extra Styles -->
 		<%= extra_style_sheet %>
@@ -36,7 +34,8 @@
 
 	<%= yield %>
 
-	<script type="text/javascript" src="/dist/js/fontstrap.js"></script>
+	<script type="text/javascript" src="/dist/js/third_party/jquery.min.js"></script>
+	<script type="text/javascript" src="/dist/js/fontstrap.min.js"></script>
 
 </body>
 </html>

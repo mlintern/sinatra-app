@@ -1,4 +1,3 @@
-# encoding: utf-8
 # frozen_string_literal: true
 
 get '/' do
@@ -43,9 +42,7 @@ post '/api/users/:id' do
   @user = User.first(id: params[:id])
   if @user
     @user2.each do |key, val|
-      unless @user[key] == @user2[key]
-        @user.update(key => val, :password => '123456', :password_confirmation => '123456')
-      end
+      @user.update(key => val, :password => '123456', :password_confirmation => '123456') unless @user[key] == @user2[key]
     end
   else
     flash[:info] = "Could not find user with id:  #{user.id}!"
